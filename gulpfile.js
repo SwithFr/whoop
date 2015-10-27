@@ -1,4 +1,4 @@
-var elixir = require('laravel-elixir');
+var elixir = require( 'laravel-elixir' );
 
 /*
  |--------------------------------------------------------------------------
@@ -11,6 +11,9 @@ var elixir = require('laravel-elixir');
  |
  */
 
-elixir(function(mix) {
-    mix.sass('app.scss');
-});
+elixir( function( mix ) {
+    mix.browserSync( {
+        proxy: 'whoop.dev'
+    })
+    .sass( 'app.sass' );
+} );
