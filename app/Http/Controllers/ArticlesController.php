@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Article;
+use App\Http\Requests\ArticleRequest;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Requests;
@@ -23,10 +24,11 @@ class ArticlesController extends Controller
 
     public function create()
     {
+
         return view( 'articles.create' );
     }
 
-    public function store(Request $request)
+    public function store(ArticleRequest $request)
     {
         Article::create($request->all());
         return redirect('/articles');
