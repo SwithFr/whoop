@@ -23,8 +23,8 @@ class AuthController extends Controller
 
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
-    protected $redirectPath = '/articles';
-    protected $loginPath = '/articles/create';
+    protected $redirectPath = '/articles/create';
+    protected $loginPath = '/auth/login';
     protected $logoutPath = '/auth/login';
     protected $redirectAfterLogout = '/auth/login';
 
@@ -50,6 +50,10 @@ class AuthController extends Controller
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|confirmed|min:6',
+        ], [
+            'required' => 'Le champ :attribute est obligatoire',
+            'email' => 'le champ :attribute n‘est pas un email valide',
+            'confirmed' => 'La confirmation ne correspond pas'
         ]);
     }
 
