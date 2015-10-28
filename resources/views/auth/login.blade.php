@@ -5,9 +5,9 @@
 	<form method="POST" class="form-horizontal" action="/auth/login">
 	    {!! csrf_field() !!}
 
-	    <div class="form-group {{ $errors->has('email') ? "has-error" : ''  }}">
-	        <label class="control-label" for="email">Email</label>
-	        <input class="form-control" type="email" name="email" value="{{ old('email') }}">
+	    <div class="form-group {{ $errors->has('name') ? "has-error" : ''  }}">
+	        <label class="control-label" for="name">Login</label>
+	        <input class="form-control" name="name" value="{{ old('name') }}">
 	    </div>
 
 	    <div class="form-group {{ $errors->has('password') ? "has-error" : ''  }}">
