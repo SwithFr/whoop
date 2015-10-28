@@ -14,6 +14,10 @@ class AddUserIdForeignKeyToArticlesTable extends Migration
     {
         Schema::table('articles', function (Blueprint $table) {
             $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')
+                  ->references('id')
+                  ->on('users')
+                  ->onDelete('cascade');
         });
     }
 
@@ -25,7 +29,8 @@ class AddUserIdForeignKeyToArticlesTable extends Migration
     public function down()
     {
         Schema::table('articles', function (Blueprint $table) {
-            //
+            $table->dropForeign('user_id');
+            $table->dropColumn('user_id');
         });
     }
 }
