@@ -3,7 +3,7 @@
     <head>
         <title>Whoop blog</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+        <link rel="stylesheet" href="http://bootswatch.com/paper/bootstrap.min.css">
         <link rel="stylesheet" href="{{ asset( "/css/app.css" )  }}"/>
     </head>
     <body>
