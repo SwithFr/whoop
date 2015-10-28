@@ -11,6 +11,13 @@ use App\Http\Requests;
 
 class ArticlesController extends Controller
 {
+
+
+    function __construct()
+    {
+        $this->middleware("auth", ['only' => ['create','edit','store','update']]);
+    }
+
     public function index()
     {
         Carbon::setLocale('fr');
