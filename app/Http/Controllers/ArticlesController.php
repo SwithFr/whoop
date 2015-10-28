@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Article;
 use App\Http\Requests\ArticleRequest;
+use Auth;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Requests;
@@ -13,7 +14,11 @@ class ArticlesController extends Controller
     public function index()
     {
         Carbon::setLocale('fr');
-        $articles = Article::latest('published_at')->published()->get();
+        if (Auth::check()) {
+            $articles =  Auth::user()->articles()->latest('published_at')->published()->get();
+        } else {
+            $articles =  Article::latest('published_at')->published()->get();
+        }
         return view( 'articles.index' )->with( 'articles', $articles);
     }
 
@@ -24,13 +29,15 @@ class ArticlesController extends Controller
 
     public function create()
     {
-
         return view( 'articles.create' );
     }
 
     public function store(ArticleRequest $request)
     {
-        Article::create($request->all());
+        $article = new Article($request->all());
+
+        Auth::user()->articles()->save($article);
+
         return redirect('/articles');
     }
 
