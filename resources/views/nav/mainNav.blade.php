@@ -21,6 +21,7 @@
 			<li><a href="{{ url("auth/logout")  }}">Se deconnecter</a></li>
         @else
             <li><a href="{{ url("auth/login") }}">Se connecter</a></li>
+            <li><a href="{{ url("auth/register") }}">S'enregistrer</a></li>
         @endif
       </ul>
     </div>
