@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -29,4 +30,13 @@ class Article extends Model
     // Utiliser published_at comme objet carbon automatiquement
     protected $dates = ['published_at'];
 
+    public function scopePublished($query)
+    {
+        return $query->where('published_at', '<=', Carbon::now());
+    }
+
+    public function scopeUnpublished($query)
+    {
+        return $query->where('published_at', '>', Carbon::now());
+    }
 }
