@@ -5,7 +5,7 @@
 
 	@foreach( $articles as $a )
 		<article>
-				<h2><a href="{!! route('showArticle', ['id'=>$a->id]) !!}">{{ $a->title  }}</a></h2>
+				<h2><a href="{!! route('articles.show', ['id'=>$a->id]) !!}">{{ $a->title  }}</a></h2>
 				<div>{{ $a->body }}</div>
 		</article>
 	@endforeach
