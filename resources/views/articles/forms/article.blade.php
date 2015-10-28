@@ -15,3 +15,5 @@
 <div class="form-group">
 	{!! Form::submit($submitButtonText, ['class' => 'btn btn-primary']) !!}
 </div>
+
+@include( "errors.articlesErrors" )
