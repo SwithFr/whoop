@@ -25,4 +25,8 @@ use Illuminate\Database\Eloquent\Model;
 class Article extends Model
 {
     protected $fillable = ['title', 'body', 'published_at'];
+
+    // Utiliser published_at comme objet carbon automatiquement
+    protected $dates = ['published_at'];
+
 }
