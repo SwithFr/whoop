@@ -1,16 +1,17 @@
 @extends( "layout" )
 
 @section( "content" )
+	@include( "errors.loginErrors" )
 	<form method="POST" class="form-horizontal" action="/auth/login">
 	    {!! csrf_field() !!}
 
-	    <div class="form-group">
-	        <label class="label-control" for="email">Email</label>
+	    <div class="form-group {{ $errors->has('email') ? "has-error" : ''  }}">
+	        <label class="control-label" for="email">Email</label>
 	        <input class="form-control" type="email" name="email" value="{{ old('email') }}">
 	    </div>
 
-	    <div class="form-group">
-	        <label class="label-control" for="password">Password</label>
+	    <div class="form-group {{ $errors->has('password') ? "has-error" : ''  }}">
+	        <label class="control-label" for="password">Password</label>
 	        <input class="form-control" type="password" name="password" id="password">
 	    </div>
 
