@@ -15,6 +15,9 @@
                 <div class="time">
                     <p>Mis en ligne {!! $a->published_at->diffForHumans() !!}</p>
                 </div>
+                <div>
+                    <p>Ajouté par {{ $a->user->name }}</p>
+                </div>
 				<div class="body">{{ $a->body }}</div>
 			</div>
 			<div class="col-lg-3">
