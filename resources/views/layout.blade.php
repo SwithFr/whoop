@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="{{ asset( "/css/app.css" )  }}"/>
     </head>
     <body>
+		@include( "nav.mainNav" )
 		<div class="container">
 			@yield( "content" )
 		</div>
