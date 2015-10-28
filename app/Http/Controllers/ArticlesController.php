@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Article;
 use Illuminate\Http\Request;
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
 
 class ArticlesController extends Controller
 {
@@ -37,8 +36,10 @@ class ArticlesController extends Controller
         return view( 'articles.edit' )->with( 'article', $article );
     }
 
-    public function update()
+    public function update($id, Request $request)
     {
-        return redirect();
+        $article = Article::findOrFail($id);
+        $article->update($request->all());
+        return redirect( 'articles' );
     }
 }
