@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Article;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 
@@ -10,7 +11,9 @@ class ArticlesController extends Controller
 {
     public function index()
     {
-        return view( 'articles.index' )->with( 'articles', Article::all() );
+        Carbon::setLocale('fr');
+        $articles = Article::latest('published_at')->published()->get();
+        return view( 'articles.index' )->with( 'articles', $articles);
     }
 
     public function show($id)
