@@ -7,7 +7,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Whoop</a>
+      <a class="navbar-brand" href="{{ url('/home') }}">Whoop</a>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
@@ -18,9 +18,9 @@
       <ul class="nav navbar-nav navbar-right">
         @if(Auth::check())
             <li><a href="{!! route('articles.create') !!}">Créer un article</a></li>
-			<li><a href="auth/logout">Se deconnecter</a></li>
+			<li><a href="{{ url("auth/logout")  }}">Se deconnecter</a></li>
         @else
-            <li><a href="auth/login">Se connecter</a></li>
+            <li><a href="{{ url("auth/login") }}">Se connecter</a></li>
         @endif
       </ul>
     </div>
