@@ -29,4 +29,12 @@ class ArticleRequest extends Request
             'published_at' => 'required|date'
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'required' => 'le champ :attribute est requis',
+            'date' => 'Le champ :attribute doit être une date'
+        ];
+    }
 }
