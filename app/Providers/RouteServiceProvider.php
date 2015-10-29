@@ -24,9 +24,9 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot(Router $router)
     {
-        //
-
         parent::boot($router);
+        // On dit que dans la route le param articles doit être une instance de App\Article
+        $router->model('articles', 'App\Article');
     }
 
     /**
