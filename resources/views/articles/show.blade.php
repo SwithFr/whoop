@@ -1,8 +1,19 @@
 @extends( "layout" )
 
 @section( "content" )
-	<h1>{{ $article->title }}</h1>
-	<div class="body">
-		{{ $article->body  }}
-	</div>
+	<article class="col-lg-9">
+		<h1>{{ $article->title }}</h1>
+		<div class="time">
+            <p class="text-muted">Mis en ligne par <span class="text-primary">{{ $article->user->name }}</span> {!! $article->published_at->diffForHumans() !!}</p>
+        </div>
+        <div class="body lead">
+            {{ $article->body  }}
+        </div>
+	</article>
+	@if(Auth::check())
+        <div class="col-lg-3">
+            <a class="label label-warning" href="{!! route( 'articles.edit', ['id' => $article->id] ) !!}">Modifier</a>
+            <a class="label label-danger" href="{!! route( 'articles.destroy', ['id' => $article->id] ) !!}">Supprimer</a>
+        </div>
+    @endif
 @stop
