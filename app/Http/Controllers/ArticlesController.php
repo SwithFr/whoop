@@ -58,4 +58,10 @@ class ArticlesController extends Controller
         $article->update($request->all());
         return redirect( 'articles' );
     }
+
+    public function destroy(Article $article)
+    {
+        $article->delete();
+        return redirect( 'articles' );
+    }
 }
