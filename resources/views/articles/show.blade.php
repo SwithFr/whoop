@@ -12,8 +12,8 @@
 	</article>
 	@if(Auth::check())
         <div class="col-lg-3">
-            <a class="label label-warning" href="{!! route( 'articles.edit', ['id' => $article->id] ) !!}">Modifier</a>
-            <a class="label label-danger" href="{!! route( 'articles.destroy', ['id' => $article->id] ) !!}">Supprimer</a>
+            <a class="label label-warning" href="{!! route( 'articles.edit', ['slug' => $article->slug] ) !!}">Modifier</a>
+            <a class="label label-danger" href="{!! route( 'articles.destroy', ['slug' => $article->slug] ) !!}">Supprimer</a>
         </div>
     @endif
 @stop
