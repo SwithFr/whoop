@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Article;
 use Illuminate\Routing\Router;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 
@@ -26,7 +27,11 @@ class RouteServiceProvider extends ServiceProvider
     {
         parent::boot($router);
         // On dit que dans la route le param articles doit être une instance de App\Article
-        $router->model('articles', 'App\Article');
+        //$router->model('articles', 'App\Article');
+
+        $router->bind('articles', function($slug) {
+            return Article::where('slug', $slug)->first();
+        });
     }
 
     /**
