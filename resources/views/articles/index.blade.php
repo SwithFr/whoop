@@ -8,12 +8,9 @@
 			<div class="col-lg-9">
 				<h2><a href="{!! route('articles.show', ['id'=>$a->id]) !!}">{{ $a->title  }}</a></h2>
                 <div class="time">
-                    <p>Mis en ligne {!! $a->published_at->diffForHumans() !!}</p>
+                    <p class="text-muted">Mis en ligne par <span class="text-primary">{{ $a->user->name }}</span> {!! $a->published_at->diffForHumans() !!}</p>
                 </div>
-                <div>
-                    <p>Ajouté par {{ $a->user->name }}</p>
-                </div>
-				<div class="body">{{ $a->body }}</div>
+				<div class="body lead">{{ $a->body }}</div>
 			</div>
 			@if(Auth::check())
 				<div class="col-lg-3">
