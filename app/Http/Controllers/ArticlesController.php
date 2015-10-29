@@ -29,9 +29,8 @@ class ArticlesController extends Controller
         return view( 'articles.index' )->with( 'articles', $articles);
     }
 
-    public function show($id)
+    public function show(Article $article)
     {
-        $article = Article::findOrFail($id);
         return view( 'articles.show' )->with( 'article', $article);
     }
 
@@ -49,16 +48,13 @@ class ArticlesController extends Controller
         return redirect('/articles');
     }
 
-    public function edit($id)
+    public function edit(Article $article)
     {
-        $article = Article::findOrFail( $id );
-
         return view( 'articles.edit' )->with( 'article', $article );
     }
 
-    public function update($id, Request $request)
+    public function update(Article $article, Request $request)
     {
-        $article = Article::findOrFail($id);
         $article->update($request->all());
         return redirect( 'articles' );
     }
