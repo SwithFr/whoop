@@ -14,8 +14,8 @@
 			</div>
 			@if(Auth::check())
 				<div class="col-lg-3">
-					<a class="btn btn-warning" href="{!! route( 'articles.edit', ['id' => $a->id] ) !!}">Modifier</a>
-					<a class="btn btn-danger" href="{!! route( 'articles.destroy', ['id' => $a->id] ) !!}">Supprimer</a>
+					<a class="label label-warning" href="{!! route( 'articles.edit', ['id' => $a->id] ) !!}">Modifier</a>
+					<a class="label label-danger" href="{!! route( 'articles.destroy', ['id' => $a->id] ) !!}">Supprimer</a>
 				</div>
 			@endif
 		</article>
