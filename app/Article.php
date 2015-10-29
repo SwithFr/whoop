@@ -3,7 +3,9 @@
 namespace App;
 
 use Carbon\Carbon;
+use DB;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 /**
  * App\Article
@@ -29,6 +31,20 @@ class Article extends Model
 
     // Utiliser published_at comme objet carbon automatiquement
     protected $dates = ['published_at'];
+
+    public function setTitleAttribute($value)
+    {
+        $this->attributes['title'] = $value;
+        $slug = Str::slug($value);
+        if (count(Article::where('slug', '=', $slug)->get())) {
+            if ($this->slug) {
+                $slug = $this->slug;
+            } else {
+                $slug .= '-' . (DB::table('articles')->max('id') + 1);
+            }
+        }
+        $this->attributes['slug'] = $slug;
+    }
 
     public function scopePublished($query)
     {
